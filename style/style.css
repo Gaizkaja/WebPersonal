@@ -1,50 +1,68 @@
-
-#button {
-    display: inline-block;
-    background-color: #FF9800;
-    width: 50px;
-    height: 50px;
+/*
+General 
+*/
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'HK Grotesk';
+    font-size: medium;
     text-align: center;
-    border-radius: 4px;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    transition: background-color .3s,
-        opacity .5s, visibility .5s;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
+    color: #F4FFFD;
+    scroll-behavior: smooth;
 }
 
-#button::after {
-    content: "\f077";
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 2em;
-    line-height: 50px;
-    color: #fff;
+a {
+    text-decoration: none;
+    color: #F4FFFD;
 }
 
-#button:hover {
-    cursor: pointer;
-    background-color: #333;
+/* 
+Navbar
+*/
+
+nav {
+    background-color: #000;
+    font-size: 30px;
+}
+.navbar-nav{
+    text-align: right;
 }
 
-#button:active {
-    background-color: #555;
+.intro {
+    padding: 4rem;
+    color: #F4FFFD;
+    font-size: larger;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.intro h1{
+    font-size: 75px;
+}
+.intro h2{
+    font-size: 50px;
+}
+/* 
+Main Content
+*/
+.MainContent {
+    padding: 3rem;
+    color: #F4FFFD;
+    font-size: larger;
+    text-align: justify;
 }
 
-#button.show {
-    opacity: 1;
-    visibility: visible;
+.card-text{
+    text-align: justify;
+    padding: 3rem;
+}
+.image{
+    order:2;
 }
 
-.cont {
-    padding: 30px;
-    justify-content: center;
-}
-
+/* Tech Stack */
 .container {
     padding: 30px;
     position: relative;
@@ -95,19 +113,16 @@
 .container .tech .face.face1 .content img {
     max-width: 100px;
 }
-
 .container .tech .face.face1 .content h3 {
     margin: 10px 0 0;
     padding: 0;
     text-align: center;
     font-size: 1.5em;
 }
-
 .content h3 {
     color: #F4FFFD;
 
 }
-
 .container .tech .face.face2 {
     position: relative;
     background: #fff;
@@ -143,286 +158,7 @@
     background: #F4FFFD;
     color: #000;
 }
-
-/*
-General 
-*/
-
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #000;
-    font-family: 'HK Grotesk';
-    font-size: medium;
-    text-align: center;
-    color: #F4FFFD;
-}
-
-a {
-    text-decoration: none;
-    color: #F4FFFD;
-}
-
-/* 
-Navbar
-*/
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: -25px;
-    padding-right: 15px;
-    background-color: #000;
-    font-size: 35px;
-}
-
-.nav>img {
-    padding: 20px;
-    margin-top: 15px;
-}
-
-.nav-items {
-    list-style: none;
-    display: flex;
-}
-
-.nav-items>li {
-    padding: 10px;
-}
-
-.nav .icon {
-    display: none;
-}
-
-@media screen and (max-width: 600px) {
-    .nav a:not(:first-child) {
-        display: none;
-    }
-
-    .nav a.icon {
-        float: right;
-        display: block;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .nav.responsive {
-        position: relative;
-    }
-
-    .nav.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .nav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-}
-.intro {
-    padding: 6rem;
-    color: #F4FFFD;
-    font-size: larger;
-    text-align: left;
-    margin-bottom: 30px;
-}
-.intro h1{
-    font-size: 75px;
-}
-.intro h2{
-    font-size: 50px;
-}
-/* 
-Main Content
-*/
-.MainContent {
-    padding: 4rem;
-    color: #F4FFFD;
-    font-size: larger;
-    text-align: justify;
-}
-
-button {
-    position: relative;
-    padding: 1em 1.8em;
-    outline: none;
-    border: 1px solid #303030;
-    background: #212121;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 15px;
-    overflow: hidden;
-    transition: 0.2s;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button>span>a {
-    color: #F4FFFD;
-    text-decoration: none;
-}
-
-button:hover {
-    box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
-    transition-delay: 0.6s;
-}
-
-button span {
-    position: absolute;
-}
-
-button span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ae00ff);
-}
-
-button:hover span:nth-child(1) {
-    left: 100%;
-    transition: 0.7s;
-}
-
-button span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #001eff);
-}
-
-button:hover span:nth-child(3) {
-    right: 100%;
-    transition: 0.7s;
-    transition-delay: 0.35s;
-}
-
-button span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #ae00ff);
-}
-
-button:hover span:nth-child(2) {
-    top: 100%;
-    transition: 0.7s;
-    transition-delay: 0.17s;
-}
-
-button span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #001eff);
-}
-
-button:hover span:nth-child(4) {
-    bottom: 100%;
-    transition: 0.7s;
-    transition-delay: 0.52s;
-}
-
-button:active {
-    background: #ae00af;
-    background: linear-gradient(to top right, #ae00af, #001eff);
-    color: #000;
-    box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
-    transition: 0.1s;
-}
-
-button:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-child(2) {
-    transition: none;
-    transition-delay: none;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.text {
-    width: 50%;
-    order: 1;
-    text-align: justify;
-    justify-content: center;
-    margin-left: 25px;
-}
-
-.img {
-    width: 50%;
-    order: 2;
-    border-radius: 20px;
-}
-
-.card {
-
-    width: 510px;
-    height: 254px;
-    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-    border-radius: 20px;
-    transition: all .3s;
-}
-
-.card2 {
-    width: 510px;
-    height: 254px;
-    background-color: #1a1a1a;
-    border-radius: 20px;
-    transition: all .2s;
-}
-
-.card2:hover {
-    transform: scale(0.98);
-    border-radius: 20px;
-}
-
-.card:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
-}
-
-.mouse-btn {
-    margin: 10px auto;
-    width: 40px;
-    height: 80px;
-    border: 3px solid rgba(122, 122, 124, 0.918);
-    border-radius: 20px;
-    display: block;
-}
-
-.mouse-scroll {
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(170deg, rgba(122, 122, 124, 0.918), rgb(123, 124, 124));
-    border-radius: 50%;
-    margin: auto;
-    animation: scrolling13 1s linear infinite;
-}
-
-@keyframes scrolling13 {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(20px);
-    }
-}
-
+/*END Tech Stack*/
 /*
 Redes Sociales
 */
@@ -430,7 +166,6 @@ Redes Sociales
     padding: 30px;
     justify-content: space-around;
 }
-
 .social a {
     padding: 0.4rem;
 }
@@ -443,4 +178,12 @@ Footer
     align-items: center;
     background-color: black;
     padding: 2rem;
+}
+.name1{
+    width: 50%;
+    order: 0;
+}
+.name2{
+    width: 50%;
+    order:1;
 }
