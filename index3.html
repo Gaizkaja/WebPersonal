@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Name Animation</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://threejs.org/examples/js/geometries/TextGeometry.js"></script>
+
+    <script>
+      // Escena, cámara y renderizador
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Cargar fuente
+      const loader = new THREE.FontLoader();
+      loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+        const textGeometry = new THREE.TextGeometry('Gaizka Jiménez', {
+          font: font,
+          size: 1,
+          height: 0.2,
+        });
+        const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+        
+        // Posicionar el texto
+        textMesh.position.set(-3, 0, 0);
+        scene.add(textMesh);
+
+        // Subtítulo
+        const subTextGeometry = new THREE.TextGeometry('Desarrollador', {
+          font: font,
+          size: 0.5,
+          height: 0.1,
+        });
+        const subTextMesh = new THREE.Mesh(subTextGeometry, textMaterial);
+        subTextMesh.position.set(-2, -1.5, 0);
+        scene.add(subTextMesh);
+      });
+
+      // Configurar la cámara
+      camera.position.z = 5;
+
+      // Animación
+      function animate() {
+        requestAnimationFrame(animate);
+        
+        // Rotar el texto
+        scene.rotation.y += 0.01;
+        
+        renderer.render(scene, camera);
+      }
+      animate();
+      
+      // Ajustar el tamaño del render al tamaño de la ventana
+      window.addEventListener('resize', function () {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+    </script>
+  </body>
+</html>
